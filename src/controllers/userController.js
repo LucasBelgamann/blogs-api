@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const { JWT_SECRET } = process.env;
 
-module.exports = async (req, res) => {
+const createController = async (req, res) => {
   const { displayName, email, password, image } = req.body;
   const { error } = valideteUser(req.body);
   if (error) {
@@ -31,3 +31,5 @@ module.exports = async (req, res) => {
 
   res.status(201).json({ token });
 };
+
+module.exports = createController;
