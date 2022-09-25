@@ -32,4 +32,12 @@ const createController = async (req, res) => {
   res.status(201).json({ token });
 };
 
-module.exports = createController;
+const getAll = async (_req, res) => {
+  const users = await User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
+  res.status(200).json(users); 
+};
+
+module.exports = {
+  createController,
+  getAll,
+};
