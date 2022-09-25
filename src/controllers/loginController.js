@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
-const validateEmailPassword = require('../middlewares/middleware');
+const validateEmailPassword = require('../middlewares/middlewareLogin');
 require('dotenv').config();
 
 const { JWT_SECRET } = process.env;
