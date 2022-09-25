@@ -1,6 +1,7 @@
 const express = require('express');
 const login = require('./controllers/loginController');
 const userController = require('./controllers/userController');
+const categoriesController = require('./controllers/categoriesController');
 const validateToken = require('./middlewares/validateToken');
 // ...
 
@@ -11,6 +12,7 @@ app.post('/login', login);
 app.post('/user', userController.createController);
 app.get('/user', validateToken, userController.getAll);
 app.get('/user/:id', validateToken, userController.getById);
+app.get('/categories', validateToken, categoriesController.getAll);
 
 // ...
 
