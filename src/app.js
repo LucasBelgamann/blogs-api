@@ -10,7 +10,10 @@ app.use(express.json());
 app.post('/login', login);
 app.post('/user', userController.createController);
 app.get('/user', validateToken, userController.getAll);
+app.get('/user/:id', validateToken, userController.getById);
+
 // ...
+
 // start project
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
