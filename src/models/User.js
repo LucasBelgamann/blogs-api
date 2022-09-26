@@ -11,5 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'users',
       underscored: true,
     });
+    User.associate = (models) => 
+    User.hasMany(models.BlogPost, { 
+      as: 'blogPosts',
+       foreignKey: 'id' 
+      })
+
     return User;
   };
